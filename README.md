@@ -2,12 +2,6 @@
 📇 Visiting Card Scanner
 A smart Flutter app that scans visiting cards, extracts contact information automatically using OCR, and saves contacts locally.
 
-
-📱 Screenshots
-
-
-✨ Features
-
 📷 Scan via Camera or Gallery — pick a visiting card image from your gallery or capture one live with the camera<br>
 🔍 Automatic Text Extraction — uses Google ML Kit Text Recognition to extract all text from the card automatically<br>
 🖐️ Drag and Drop Mapping — long press and drag extracted text chips to map them to the correct fields (Name, Mobile, Email, Company, Designation, Address, Website)<br>
@@ -21,18 +15,19 @@ A smart Flutter app that scans visiting cards, extracts contact information auto
 🗑️ Delete Contacts — remove contacts you no longer need<br>
 <b>r
 🛠️ Tech Stack
-TechnologyPurposeFlutter & DartCross-platform mobile developmentGoogle ML Kit Text RecognitionOCR — automatic text extraction from card imagesSQFliteLocal database for storing contactsProviderState managementGo RouterAdvanced navigation and routingImage PickerCamera and gallery accessURL LauncherCall, SMS, and email integrationFlutter Easy LoadingLoading indicators<br>
+TechnologyPurposeFlutter & DartCross-platform mobile developmentGoogle ML Kit Text RecognitionOCR — automatic text extraction from card imagesSQFliteLocal database for storing contactsProviderState managementGo RouterAdvanced navigation and routingImage PickerCamera and gallery accessURL LauncherCall, SMS, and email integrationFlutter Easy LoadingLoading indicators
+<br>
 📂 Project Structure
 lib/
 ├── main.dart
-├── db/                  # Database helper and queries
-├── model/               # Contact data models
-├── pages/               # All screens
-│   ├── home_page.dart   # Contact list with All and Favourites tabs
-│   ├── scan_page.dart   # Camera/Gallery + Drag and Drop mapping
-│   └── form_page.dart   # Editable contact form before saving
-├── provider/            # State management with Provider
-└── utils/               # Utility functions and constants
+├── db/                 
+├── model/               
+├── pages/              
+│   ├── home_page.dart   
+│   ├── scan_page.dart   
+│   └── form_page.dart   
+├── provider/            
+└── utils/              
 
 🚀 How to Run
 Prerequisites
