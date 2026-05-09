@@ -1,41 +1,27 @@
-<div align="center">
+
 📇 Visiting Card Scanner
 A smart Flutter app that scans visiting cards, extracts contact information automatically using OCR, and saves contacts locally.
-Show Image
-Show Image
-Show Image
-Show Image
-</div>
+
 
 📱 Screenshots
-<p align="center">
-  <img src="screenshots/scan_page.png" width="200" alt="Scan Page"/>
-  &nbsp;&nbsp;
-  <img src="screenshots/drag_drop.png" width="200" alt="Drag and Drop Mapping"/>
-  &nbsp;&nbsp;
-  <img src="screenshots/form_page.png" width="200" alt="Form Page"/>
-  &nbsp;&nbsp;
-  <img src="screenshots/contact_list.png" width="200" alt="Contact List"/>
-</p>
+
 
 ✨ Features
 
-📷 Scan via Camera or Gallery — pick a visiting card image from your gallery or capture one live with the camera
-🔍 Automatic Text Extraction — uses Google ML Kit Text Recognition to extract all text from the card automatically
-🖐️ Drag and Drop Mapping — long press and drag extracted text chips to map them to the correct fields (Name, Mobile, Email, Company, Designation, Address, Website)
-✏️ Editable Form — review and edit all extracted information before saving
-💾 Local Storage — all contacts saved locally using SQFlite — no internet required
-📋 Contact List — view all saved contacts in a clean list with All and Favourites tabs
-❤️ Favourites — mark important contacts as favourite for quick access
-📞 Tap to Call — tap phone number to call directly
-💬 Tap to SMS — tap phone number to send SMS directly
-📧 Tap to Email — tap email to open mail app directly
-🗑️ Delete Contacts — remove contacts you no longer need
-
-
+📷 Scan via Camera or Gallery — pick a visiting card image from your gallery or capture one live with the camera<br>
+🔍 Automatic Text Extraction — uses Google ML Kit Text Recognition to extract all text from the card automatically<br>
+🖐️ Drag and Drop Mapping — long press and drag extracted text chips to map them to the correct fields (Name, Mobile, Email, Company, Designation, Address, Website)<br>
+✏️ Editable Form — review and edit all extracted information before saving<br>
+💾 Local Storage — all contacts saved locally using SQFlite — no internet required<br>
+📋 Contact List — view all saved contacts in a clean list with All and Favourites tabs<br>
+❤️ Favourites — mark important contacts as favourite for quick access<br>
+📞 Tap to Call — tap phone number to call directly<br>
+💬 Tap to SMS — tap phone number to send SMS directly<br>
+📧 Tap to Email — tap email to open mail app directly<br>
+🗑️ Delete Contacts — remove contacts you no longer need<br>
+<b>r
 🛠️ Tech Stack
-TechnologyPurposeFlutter & DartCross-platform mobile developmentGoogle ML Kit Text RecognitionOCR — automatic text extraction from card imagesSQFliteLocal database for storing contactsProviderState managementGo RouterAdvanced navigation and routingImage PickerCamera and gallery accessURL LauncherCall, SMS, and email integrationFlutter Easy LoadingLoading indicators
-
+TechnologyPurposeFlutter & DartCross-platform mobile developmentGoogle ML Kit Text RecognitionOCR — automatic text extraction from card imagesSQFliteLocal database for storing contactsProviderState managementGo RouterAdvanced navigation and routingImage PickerCamera and gallery accessURL LauncherCall, SMS, and email integrationFlutter Easy LoadingLoading indicators<br>
 📂 Project Structure
 lib/
 ├── main.dart
@@ -50,29 +36,18 @@ lib/
 
 🚀 How to Run
 Prerequisites
-
 Flutter SDK installed
 Android Studio or VS Code
 Android device or emulator
-
 Steps
-bash# 1. Clone the repository
+# 1. Clone the repository
 git clone https://github.com/Monam1083/visiting-card-scanner-flutter.git
-
 # 2. Navigate to project folder
 cd visiting-card-scanner-flutter
-
 # 3. Install dependencies
 flutter pub get
-
 # 4. Run the app
 flutter run
-
-📦 Download APK
-
-🔗 Download Latest APK
-
-Install directly on your Android device to try the app without building from source.
 
 🧠 What I Learned
 
@@ -83,7 +58,6 @@ Implementing Go Router for clean and scalable navigation
 Separating concerns with a proper folder structure — models, pages, providers, db, utils
 Using Provider for efficient state management across screens
 Handling device permissions for camera, gallery, phone, and SMS
-
 
 👨‍💻 Developer
 Muhammad Monam Majeed
