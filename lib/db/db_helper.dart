@@ -48,4 +48,14 @@ class DbHelper {
       whereArgs: [id],
     );
   }
+
+  Future<int> updateFavourite(int id, int value) async {
+    final db = await _open();
+    return db.update(
+      tableContact,
+      {tblContactColFavourite: value},
+      where: "$tblContactColId=?",
+      whereArgs: [id],
+    );
+  }
 }
