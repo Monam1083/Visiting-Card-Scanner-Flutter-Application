@@ -44,6 +44,7 @@ class _HomePageState extends State<HomePage> {
             setState(() {
               selectedindex = index;
             });
+            _fetchData();
           },
           currentIndex: selectedindex,
           items: [
@@ -114,5 +115,16 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
     );
+  }
+
+  void _fetchData() {
+    switch (selectedindex) {
+      case 0:
+        Provider.of<ContactProvider>(context, listen: false).getAllContacts();
+        break;
+      case 1:
+        Provider.of<ContactProvider>(context, listen: false).getAllContacts();
+        break;
+    }
   }
 }
