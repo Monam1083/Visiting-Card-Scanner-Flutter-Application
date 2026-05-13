@@ -62,7 +62,7 @@ class ContactModels {
     designation: map[tblContactColDesignation],
     website: map[tblContactColWebsite],
     image: map[tblContactColImage],
-    favourite: map[tblContactColFavourite],
+    favourite: map[tblContactColFavourite] == "1" ? true : false,
   );
   @override
   String toString() {
