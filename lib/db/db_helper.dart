@@ -28,6 +28,12 @@ class DbHelper {
           await db.execute(
             "alter table $tableContact rename to ${"contact_old"}",
           );
+          await db.execute(_createTableContact);
+          final rows = await db.query("contact_old");
+          for (var row in rows) {
+            await db.insert(tableContact, row);
+          }
+          await db.execute("drop table if exists ${"contact_db"}");
         }
       },
     );
