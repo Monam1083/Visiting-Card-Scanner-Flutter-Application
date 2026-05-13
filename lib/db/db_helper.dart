@@ -13,15 +13,22 @@ class DbHelper {
   $tblContactColCompany text,
   $tblContactColDesignation text,
   $tblContactColWebsite text,
-  $tblContactColFavourite text, )''';
+  $tblContactColFavourite integer, )''';
   Future<Database> _open() async {
     final root = await getDatabasesPath();
     final dbPath = p.join(root, "contact.db");
     return openDatabase(
       dbPath,
-      version: 1,
+      version: 2,
       onCreate: (db, version) {
         db.execute(_createTableContact);
+      },
+      onUpgrade: (db, oldversion, newversion) async {
+        if (oldversion == 1) {
+          await db.execute(
+            "alter table $tableContact rename to ${"contact_old"}",
+          );
+        }
       },
     );
   }
