@@ -31,7 +31,7 @@ class _ContactDetailsPageState extends State<ContactDetailsPage> {
           future: provider.getContactById(id),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-              final contact = snapshot.data;
+              final contact = snapshot.data!;
               return ListView(
                 padding: EdgeInsets.all(8),
                 children: [
