@@ -36,7 +36,7 @@ Android Studio or VS Code
 Android device or emulator
 Steps
 # 1. Clone the repository
-git clone https://github.com/Monam1083/visiting-card-scanner-flutter.git
+git clone https://github.com/Monam1083/visiting-card-scanner-flutter
 # 2. Navigate to project folder
 cd visiting-card-scanner-flutter
 # 3. Install dependencies
@@ -57,8 +57,7 @@ Handling device permissions for camera, gallery, phone, and SMS
 👨‍💻 Developer
 Muhammad Monam Majeed
 BS Software Engineering — Lahore Garrison University (Fall 2023 – 2027)
-Show Image
-Show Image
+
 
 <div align="center">
 ⭐ If you found this project helpful, please give it a star!
