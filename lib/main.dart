@@ -3,6 +3,7 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:visting_card_scanner_application/model/contact_models.dart';
+import 'package:visting_card_scanner_application/pages/contact_details_page.dart';
 import 'package:visting_card_scanner_application/pages/form_page.dart';
 import 'package:visting_card_scanner_application/pages/home_page.dart';
 import 'package:visting_card_scanner_application/pages/scan_page.dart';
@@ -39,6 +40,12 @@ class MyApp extends StatelessWidget {
         path: HomePage.routername,
         builder: (context, state) => const HomePage(),
         routes: [
+          GoRoute(
+            name: ContactDetailsPage.routeName,
+            path: ContactDetailsPage.routeName,
+            builder: (context, state) =>
+                ContactDetailsPage(id: state.extra! as int),
+          ),
           GoRoute(
             name: ScanPage.routername,
             path: ScanPage.routername,
