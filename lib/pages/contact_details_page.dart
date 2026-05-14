@@ -41,6 +41,16 @@ class _ContactDetailsPageState extends State<ContactDetailsPage> {
                     height: 250,
                     fit: BoxFit.cover,
                   ),
+                  ListTile(
+                    title: Text(contact.mobile),
+                    trailing: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        IconButton(onPressed: () {}, icon: Icon(Icons.call)),
+                        IconButton(onPressed: () {}, icon: Icon(Icons.sms)),
+                      ],
+                    ),
+                  ),
                 ],
               );
             }
