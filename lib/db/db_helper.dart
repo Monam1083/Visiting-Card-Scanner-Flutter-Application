@@ -60,7 +60,7 @@ class DbHelper {
       where: "$tblContactColFavourite=?",
       whereArgs: [1],
     );
-    return ContactModels.fromMap(mapList[id]);
+    return ContactModels.fromMap(mapList.first);
   }
 
   Future<List<ContactModels>> getAllFavouriteContacts() async {
