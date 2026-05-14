@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
+import 'package:visting_card_scanner_application/pages/contact_details_page.dart';
 import 'package:visting_card_scanner_application/pages/scan_page.dart';
 import 'package:visting_card_scanner_application/provider/contact_provider.dart';
 import 'package:visting_card_scanner_application/utils/helper_function.dart';
@@ -76,6 +77,10 @@ class _HomePageState extends State<HomePage> {
                 showMsg(context, "Delete");
               },
               child: ListTile(
+                onTap: () => context.goNamed(
+                  ContactDetailsPage.routeName,
+                  extra: contact.id,
+                ),
                 title: Text(contact.name),
                 trailing: IconButton(
                   onPressed: () {
