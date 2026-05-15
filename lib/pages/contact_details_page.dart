@@ -2,10 +2,11 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:url_launcher/url_launcher.dart';
+
 import 'package:url_launcher/url_launcher_string.dart';
 import 'package:visting_card_scanner_application/model/contact_models.dart';
 import 'package:visting_card_scanner_application/provider/contact_provider.dart';
+import 'package:visting_card_scanner_application/utils/helper_function.dart';
 
 class ContactDetailsPage extends StatefulWidget {
   static const String routeName = "details";
@@ -80,6 +81,8 @@ class _ContactDetailsPageState extends State<ContactDetailsPage> {
     final url = "tel:$mobile";
     if (await canLaunchUrlString(url)) {
       await launchUrlString(url);
+    } else {
+      showMsg(context, "cannot perform this task");
     }
   }
 
@@ -87,6 +90,8 @@ class _ContactDetailsPageState extends State<ContactDetailsPage> {
     final url = "sms:$mobile";
     if (await canLaunchUrlString(url)) {
       await launchUrlString(url);
+    } else {
+      showMsg(context, "cannot perform this task");
     }
   }
 }
