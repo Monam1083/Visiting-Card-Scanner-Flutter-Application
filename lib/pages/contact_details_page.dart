@@ -54,7 +54,6 @@ class _ContactDetailsPageState extends State<ContactDetailsPage> {
                   ),
 
                 const SizedBox(height: 8),
-
                 if (contact.name.isNotEmpty)
                   ListTile(
                     leading: const Icon(Icons.person),
@@ -78,7 +77,6 @@ class _ContactDetailsPageState extends State<ContactDetailsPage> {
                         ? Text(contact.designation)
                         : null,
                   ),
-
                 if (contact.mobile.isNotEmpty)
                   ListTile(
                     leading: const Icon(Icons.phone),
@@ -99,7 +97,6 @@ class _ContactDetailsPageState extends State<ContactDetailsPage> {
                       ],
                     ),
                   ),
-
                 if (contact.email.isNotEmpty)
                   ListTile(
                     leading: const Icon(Icons.email),
@@ -121,7 +118,6 @@ class _ContactDetailsPageState extends State<ContactDetailsPage> {
                       icon: const Icon(Icons.open_in_browser),
                     ),
                   ),
-
                 if (contact.address.isNotEmpty)
                   ListTile(
                     leading: const Icon(Icons.location_on),
