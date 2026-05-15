@@ -45,17 +45,40 @@ class _ContactDetailsPageState extends State<ContactDetailsPage> {
             return ListView(
               padding: const EdgeInsets.all(8),
               children: [
-                // ── Image ──────────────────────────────────────────────
-                Image.file(
-                  File(contact.image),
-                  width: double.infinity,
-                  height: 250,
-                  fit: BoxFit.cover,
-                ),
+                if (contact.image.isNotEmpty)
+                  Image.file(
+                    File(contact.image),
+                    width: double.infinity,
+                    height: 250,
+                    fit: BoxFit.cover,
+                  ),
 
                 const SizedBox(height: 8),
 
-                // ── Mobile ─────────────────────────────────────────────
+                if (contact.name.isNotEmpty)
+                  ListTile(
+                    leading: const Icon(Icons.person),
+                    title: Text(
+                      contact.name,
+                      style: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+
+                if (contact.company.isNotEmpty ||
+                    contact.designation.isNotEmpty)
+                  ListTile(
+                    leading: const Icon(Icons.business),
+                    title: contact.company.isNotEmpty
+                        ? Text(contact.company)
+                        : null,
+                    subtitle: contact.designation.isNotEmpty
+                        ? Text(contact.designation)
+                        : null,
+                  ),
+
                 if (contact.mobile.isNotEmpty)
                   ListTile(
                     leading: const Icon(Icons.phone),
@@ -77,7 +100,6 @@ class _ContactDetailsPageState extends State<ContactDetailsPage> {
                     ),
                   ),
 
-                // ── Email ──────────────────────────────────────────────
                 if (contact.email.isNotEmpty)
                   ListTile(
                     leading: const Icon(Icons.email),
@@ -89,7 +111,17 @@ class _ContactDetailsPageState extends State<ContactDetailsPage> {
                     ),
                   ),
 
-                // ── Address / Map ──────────────────────────────────────
+                if (contact.website.isNotEmpty)
+                  ListTile(
+                    leading: const Icon(Icons.language),
+                    title: Text(contact.website),
+                    trailing: IconButton(
+                      tooltip: "Open website",
+                      onPressed: () => _openWebsite(contact.website),
+                      icon: const Icon(Icons.open_in_browser),
+                    ),
+                  ),
+
                 if (contact.address.isNotEmpty)
                   ListTile(
                     leading: const Icon(Icons.location_on),
@@ -107,8 +139,6 @@ class _ContactDetailsPageState extends State<ContactDetailsPage> {
       ),
     );
   }
-
-  // ── Launchers ────────────────────────────────────────────────────────
 
   Future<void> _callContact(String mobile) async {
     final url = "tel:$mobile";
@@ -137,8 +167,17 @@ class _ContactDetailsPageState extends State<ContactDetailsPage> {
     }
   }
 
+  Future<void> _openWebsite(String website) async {
+    // Ensures URLs without "http" still launch correctly
+    final url = website.startsWith("http") ? website : "https://$website";
+    if (await canLaunchUrlString(url)) {
+      await launchUrlString(url, mode: LaunchMode.externalApplication);
+    } else {
+      _showSnackBar("Could not open website");
+    }
+  }
+
   Future<void> _openMap(String address) async {
-    // Works on both Android (Google Maps) and iOS (Apple Maps)
     final encoded = Uri.encodeComponent(address);
     final url = "https://www.google.com/maps/search/?api=1&query=$encoded";
     if (await canLaunchUrlString(url)) {
