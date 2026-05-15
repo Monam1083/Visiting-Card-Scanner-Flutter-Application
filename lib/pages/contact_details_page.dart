@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 import 'package:visting_card_scanner_application/model/contact_models.dart';
 import 'package:visting_card_scanner_application/provider/contact_provider.dart';
 
@@ -46,8 +48,18 @@ class _ContactDetailsPageState extends State<ContactDetailsPage> {
                     trailing: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        IconButton(onPressed: () {}, icon: Icon(Icons.call)),
-                        IconButton(onPressed: () {}, icon: Icon(Icons.sms)),
+                        IconButton(
+                          onPressed: () {
+                            callContact(contact.mobile);
+                          },
+                          icon: Icon(Icons.call),
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            smsContact(contact.mobile);
+                          },
+                          icon: Icon(Icons.sms),
+                        ),
                       ],
                     ),
                   ),
@@ -62,5 +74,19 @@ class _ContactDetailsPageState extends State<ContactDetailsPage> {
         ),
       ),
     );
+  }
+
+  void callContact(String mobile) async {
+    final url = "tel:$mobile";
+    if (await canLaunchUrlString(url)) {
+      await launchUrlString(url);
+    }
+  }
+
+  void smsContact(String mobile) async {
+    final url = "sms:$mobile";
+    if (await canLaunchUrlString(url)) {
+      await launchUrlString(url);
+    }
   }
 }
