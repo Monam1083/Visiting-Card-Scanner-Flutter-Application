@@ -1,64 +1,171 @@
+# 📇 Visiting Card Scanner
 
-📇 Visiting Card Scanner
-A smart Flutter app that scans visiting cards, extracts contact information automatically using OCR, and saves contacts locally.
+A Flutter application that scans visiting/business cards and automatically extracts contact information, storing it locally for easy access and communication.
 
-📷 Scan via Camera or Gallery — pick a visiting card image from your gallery or capture one live with the camera<br>
-🔍 Automatic Text Extraction — uses Google ML Kit Text Recognition to extract all text from the card automatically<br>
-🖐️ Drag and Drop Mapping — long press and drag extracted text chips to map them to the correct fields (Name, Mobile, Email, Company, Designation, Address, Website)<br>
-✏️ Editable Form — review and edit all extracted information before saving<br>
-💾 Local Storage — all contacts saved locally using SQFlite — no internet required<br>
-📋 Contact List — view all saved contacts in a clean list with All and Favourites tabs<br>
-❤️ Favourites — mark important contacts as favourite for quick access<br>
-📞 Tap to Call — tap phone number to call directly<br>
-💬 Tap to SMS — tap phone number to send SMS directly<br>
-📧 Tap to Email — tap email to open mail app directly<br>
-🗑️ Delete Contacts — remove contacts you no longer need<br>
-<b>r
-🛠️ Tech Stack
-TechnologyPurposeFlutter & DartCross-platform mobile developmentGoogle ML Kit Text RecognitionOCR — automatic text extraction from card imagesSQFliteLocal database for storing contactsProviderState managementGo RouterAdvanced navigation and routingImage PickerCamera and gallery accessURL LauncherCall, SMS, and email integrationFlutter Easy LoadingLoading indicators
-<br>
-📂 Project Structure
+---
+
+## ✨ Features
+
+- 📸 **Scan Business Cards** — Capture visiting cards using the device camera
+- 🤖 **Auto Extract Info** — Automatically parses name, mobile, email, company, designation, website, and address from scanned cards
+- 💾 **Local Storage** — All contacts saved locally using SQLite (no internet required)
+- 📞 **One-tap Call** — Call any contact directly from the app
+- 💬 **One-tap SMS** — Send an SMS without leaving the app
+- 📧 **One-tap Email** — Opens your mail app pre-filled with the contact's email
+- 🌐 **Website Launch** — Opens contact's website in the browser
+- 🗺️ **Open in Maps** — View the contact's address in Google Maps
+- ⭐ **Favourites** — Mark important contacts as favourites
+- 📝 **Add / Edit Manually** — Add or update contacts via a form
+
+---
+
+## 🗂️ Project Structure
+
+```
 lib/
-├── main.dart
-├── db/                 
-├── model/               
-├── pages/              
-│   ├── home_page.dart   
-│   ├── scan_page.dart   
-│   └── form_page.dart   
-├── provider/            
-└── utils/              
+├── db/
+│   └── db_helper.dart          # SQLite database setup & CRUD operations
+├── model/
+│   └── contact_models.dart     # Contact data model & table constants
+├── pages/
+│   ├── home_page.dart          # Contact list & search
+│   ├── scan_page.dart          # Camera & card scanning
+│   ├── form_page.dart          # Add / Edit contact form
+│   └── contact_details_page.dart  # Full contact detail view
+├── provider/
+│   └── contact_provider.dart   # State management (Provider)
+├── utils/                      # Utility/helper functions
+└── main.dart                   # App entry point
+```
 
-🚀 How to Run
-Prerequisites
-Flutter SDK installed
-Android Studio or VS Code
-Android device or emulator
-Steps
-# 1. Clone the repository
-git clone https://github.com/Monam1083/visiting-card-scanner-flutter
-# 2. Navigate to project folder
-cd visiting-card-scanner-flutter
-# 3. Install dependencies
-flutter pub get
-# 4. Run the app
-flutter run
+---
 
-🧠 What I Learned
+## 🛠️ Tech Stack
 
-Integrating Google ML Kit for real-time text recognition in a Flutter app
-Building a custom drag and drop interface to map extracted text to specific contact fields
-Managing local data with SQFlite including CRUD operations
-Implementing Go Router for clean and scalable navigation
-Separating concerns with a proper folder structure — models, pages, providers, db, utils
-Using Provider for efficient state management across screens
-Handling device permissions for camera, gallery, phone, and SMS
+| Layer | Technology |
+|---|---|
+| Framework | Flutter |
+| Language | Dart |
+| Database | SQLite (`sqflite`) |
+| State Management | Provider |
+| URL Actions | `url_launcher` |
+| Camera / Scan | Flutter Camera / ML Kit |
 
-👨‍💻 Developer
-Muhammad Monam Majeed
-BS Software Engineering — Lahore Garrison University (Fall 2023 – 2027)
+---
 
+## 📦 Dependencies
 
-<div align="center">
-⭐ If you found this project helpful, please give it a star!
-</div>
+Add these to your `pubspec.yaml`:
+
+```yaml
+dependencies:
+  flutter:
+    sdk: flutter
+  provider: ^6.1.2
+  sqflite: ^2.3.3
+  path: ^1.9.0
+  url_launcher: ^6.3.1
+  image_picker: ^1.1.2
+```
+
+---
+
+## ⚙️ Setup & Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-username/visiting-card-scanner.git
+   cd visiting-card-scanner
+   ```
+
+2. **Install dependencies**
+   ```bash
+   flutter pub get
+   ```
+
+3. **Android — add permissions** in `android/app/src/main/AndroidManifest.xml`:
+   ```xml
+   <uses-permission android:name="android.permission.CAMERA"/>
+   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+   <uses-permission android:name="android.permission.CALL_PHONE"/>
+   <uses-permission android:name="android.permission.SEND_SMS"/>
+   ```
+
+4. **Android — add url_launcher queries** in `AndroidManifest.xml` inside `<manifest>`:
+   ```xml
+   <queries>
+     <intent>
+       <action android:name="android.intent.action.DIAL"/>
+     </intent>
+     <intent>
+       <action android:name="android.intent.action.SENDTO"/>
+       <data android:scheme="mailto"/>
+     </intent>
+     <intent>
+       <action android:name="android.intent.action.SENDTO"/>
+       <data android:scheme="sms"/>
+     </intent>
+     <intent>
+       <action android:name="android.intent.action.VIEW"/>
+       <data android:scheme="https"/>
+     </intent>
+   </queries>
+   ```
+
+5. **Run the app**
+   ```bash
+   flutter run
+   ```
+
+---
+
+## 🗄️ Database Schema
+
+**Table:** `tbl_contact`
+
+| Column | Type | Description |
+|---|---|---|
+| `id` | INTEGER (PK) | Auto-increment primary key |
+| `name` | TEXT | Contact full name |
+| `mobile` | TEXT | Phone number |
+| `email` | TEXT | Email address |
+| `company` | TEXT | Company name |
+| `designation` | TEXT | Job title |
+| `website` | TEXT | Website URL |
+| `address` | TEXT | Physical address |
+| `image` | TEXT | Local path to scanned card image |
+| `favourite` | INTEGER | `1` = favourite, `0` = normal |
+
+---
+
+## 📱 Screenshots
+
+| Home | Scan | Details |
+|---|---|---|
+| *(Add screenshot)* | *(Add screenshot)* | *(Add screenshot)* |
+
+---
+
+## 🚀 Roadmap
+
+- [ ] Dark mode support
+- [ ] Export contacts to CSV / vCard
+- [ ] Cloud backup & sync
+- [ ] Search & filter by company
+- [ ] Share contact as QR code
+
+---
+
+## 🤝 Contributing
+
+Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+> Built with ❤️ using Flutter
