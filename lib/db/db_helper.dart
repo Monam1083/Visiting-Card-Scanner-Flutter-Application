@@ -13,7 +13,8 @@ class DbHelper {
   $tblContactColCompany text,
   $tblContactColDesignation text,
   $tblContactColWebsite text,
-  $tblContactColFavourite integer, )''';
+  $tblContactColImage  text,
+  $tblContactColFavourite integer)''';
   Future<Database> _open() async {
     final root = await getDatabasesPath();
     final dbPath = p.join(root, "contact.db");
@@ -57,8 +58,8 @@ class DbHelper {
     final db = await _open();
     final mapList = await db.query(
       tableContact,
-      where: "$tblContactColFavourite=?",
-      whereArgs: [1],
+      where: "$tblContactColId=?",
+      whereArgs: [id],
     );
     return ContactModels.fromMap(mapList.first);
   }

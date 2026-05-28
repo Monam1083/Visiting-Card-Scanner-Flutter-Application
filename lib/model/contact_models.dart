@@ -44,6 +44,7 @@ class ContactModels {
       tblContactColCompany: company,
       tblContactColDesignation: designation,
       tblContactColWebsite: website,
+      tblContactColImage: image,
       tblContactColFavourite: favourite ? 1 : 0,
     };
     if (id > 0) {
@@ -62,7 +63,7 @@ class ContactModels {
     designation: map[tblContactColDesignation],
     website: map[tblContactColWebsite],
     image: map[tblContactColImage],
-    favourite: map[tblContactColFavourite] == "1" ? true : false,
+    favourite: map[tblContactColFavourite] == 1 ? true : false,
   );
   @override
   String toString() {
