@@ -74,7 +74,7 @@ dependencies:
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/visiting-card-scanner.git
+   git clone https://github.com/Monam1083/Visiting-Card-Scanner-Flutter-Application
    cd visiting-card-scanner
    ```
 
@@ -145,6 +145,15 @@ dependencies:
 | *(Add screenshot)* | *(Add screenshot)* | *(Add screenshot)* |
 
 ---
+### video
+
+
+
+
+https://github.com/user-attachments/assets/04c981f7-cb11-4cb4-97c3-e057a37f8c53
+
+
+
 
 ## 🚀 Roadmap
 
