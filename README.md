@@ -140,9 +140,11 @@ dependencies:
 
 ## 📱 Screenshots
 
-| Home | Scan | Details |
-|---|---|---|
-| *(Add screenshot)* | *(Add screenshot)* | *(Add screenshot)* |
+<img width="142" height="293" alt="image" src="https://github.com/user-attachments/assets/03929ec5-5bd8-4279-a12a-12437b3a9c91" />
+<img width="140" height="298" alt="image" src="https://github.com/user-attachments/assets/4f598a7e-f9fb-470d-900a-b71513ff7410" />
+<img width="139" height="293" alt="image" src="https://github.com/user-attachments/assets/43a20ada-24f3-4efe-9acf-201098b1f798" />
+<img width="140" height="274" alt="image" src="https://github.com/user-attachments/assets/ccc940bd-c0f4-41db-abb2-6b20ef891789" />
+
 
 ---
 ### video
