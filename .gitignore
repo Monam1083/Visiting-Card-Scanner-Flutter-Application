@@ -48,9 +48,6 @@ web/flutter_service_worker.js
 web/flutter.js
 
 # ── VS Code ───────────────────────────────────────────────
-.vscode/settings.json
-.vscode/launch.json
-.vscode/*.code-workspace
 
 # ── IDEs ──────────────────────────────────────────────────
 .idea/
@@ -65,8 +62,6 @@ Thumbs.db
 Desktop.ini
 
 # ── Environment & Secrets ────────────────────────────────
-.env
-.env.*
 secrets.dart
 google-services.json            # ⚠️ if you add Firebase later
 GoogleService-Info.plist        # ⚠️ if you add Firebase later
@@ -85,3 +80,9 @@ uploads/
 *.log
 coverage/
 test/reports/
+branch_structure.json
+temp_auto_push.bat
+temp_interactive_push.bat
+.gitignore
+config.bat
+node_modules
