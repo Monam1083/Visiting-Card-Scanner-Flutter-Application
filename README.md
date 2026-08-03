@@ -1,4 +1,4 @@
-# 📇 Visiting Card Scanner
+# 📇 Visiting Card Scanner Application
 
 A Flutter application that scans visiting/business cards and automatically extracts contact information, storing it locally for easy access and communication.
 
@@ -180,3 +180,4 @@ This project is licensed under the [MIT License](LICENSE).
 ---
 
 > Built with ❤️ using Flutter
+Author : Muhammad Monam Majeed
